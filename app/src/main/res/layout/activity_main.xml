@@ -8,13 +8,19 @@
         android:layout_height="match_parent"
         tools:context=".view.MainActivity">
 
+        <FrameLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:itemIconTint="@drawable/navigation_tint"
-            app:itemTextColor="@drawable/navigation_tint"
+            app:itemIconTint="@drawable/menu_item_color"
+            app:itemTextColor="@drawable/menu_item_color"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/navigation_menu"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

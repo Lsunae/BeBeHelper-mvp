@@ -5,13 +5,13 @@
         android:enabled="true"
         android:title="@string/grouping" />
     <item
-        android:id="@+id/action_info_sharing_tab"
+        android:id="@+id/action_info_sharing"
         android:enabled="true"
         android:title="@string/info_sharing" />
     <item
         android:id="@+id/action_recommended_activity"
         android:enabled="true"
-        android:title="@string/grouping" />
+        android:title="@string/recommended_activity" />
     <item
         android:id="@+id/action_my_page"
         android:enabled="true"
