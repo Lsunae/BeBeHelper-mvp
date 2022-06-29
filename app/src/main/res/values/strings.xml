@@ -5,4 +5,11 @@
     <string name="info_sharing">정보공유</string>
     <string name="recommended_activity">추천 활동</string>
     <string name="my_page">마이페이지</string>
+
+    <!-- 로그인 -->
+    <string name="sign_in_email">이메일</string>
+    <string name="sign_in_password">비밀번호</string>
+    <string name="sign_in_find_password">비밀번호 찾기</string>
+    <string name="sign_in_need_sign_up">아직 회원이 아니신가요? 회원가입</string>
+
 </resources>
