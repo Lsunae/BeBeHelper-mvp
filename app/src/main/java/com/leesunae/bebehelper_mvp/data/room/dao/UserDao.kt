@@ -1,16 +1,20 @@
 package com.leesunae.bebehelper_mvp.data.room.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import com.leesunae.bebehelper_mvp.data.room.entity.UserEntity
+import androidx.room.*
+import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 
 @Dao
 interface UserDao {
     @Insert
-    fun insertAll(vararg user: UserEntity?)
+    fun insertAll(vararg user: User?)
 
-    @Delete
-    fun delete(user: UserEntity?)
+    @Update
+    fun update(user: User)
+
+    @Query("DELETE FROM User WHERE email = :email")
+    fun delete(email: String)
+
+    @Query("SELECT * FROM User WHERE email = :email")
+    fun getAll(email: String)
 }
