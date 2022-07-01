@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity
-class UserEntity {
+class User {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 
