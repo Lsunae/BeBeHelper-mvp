@@ -23,8 +23,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
     private fun setUpView() {
         binding.apply {
-            incInputEmail.etInput.hint = resources.getString(R.string.sign_in_email)
-            incInputPassword.etInput.hint = resources.getString(R.string.sign_in_password)
+            incInputEmail.etInput.hint = resources.getString(R.string.email)
+            incInputPassword.etInput.hint = resources.getString(R.string.password)
 
             // 회원가입 텍스트 컬러 셋팅
             val span = SpannableString(tvSignUp.text)

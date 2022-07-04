@@ -6,10 +6,28 @@
     <string name="recommended_activity">추천 활동</string>
     <string name="my_page">마이페이지</string>
 
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="find_password">비밀번호 찾기</string>
+
     <!-- 로그인 -->
-    <string name="sign_in_email">이메일</string>
-    <string name="sign_in_password">비밀번호</string>
-    <string name="sign_in_find_password">비밀번호 찾기</string>
+    <string name="sign_in">로그인</string>
     <string name="sign_in_need_sign_up">아직 회원이 아니신가요? 회원가입</string>
 
+    <!-- 회원가입 -->
+    <string name="sign_up">회원가입</string>
+
+    <string name="nickname">닉네임</string>
+    <string name="user_gender">회원님 성별</string>
+    <string name="child_gender">아이 성별</string>
+    <string name="child_age">아이 나이</string>
+    <string name="area">거주지</string>
+    <string name="picture_with_child_and_parent">아이와 함께 찍은 사진</string>
+
+    <string name="email_format">이메일 형식이 올바르지 않습니다.</string>
+    <string name="password_format">영문, 숫자 조합 8~16자로 입력해주세요.</string>
+    <string name="nickname_format">한글, 영문, 숫자 포함 1~10자로 입력해주세요.</string>
+    <string name="input_email">이메일을 입력해주세요.</string>
+    <string name="input_password">비밀번호를 입력해주세요.</string>
+    <string name="input_nickname">닉네임을 입력해주세요.</string>
 </resources>

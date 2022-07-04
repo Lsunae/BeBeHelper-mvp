@@ -10,6 +10,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_900">#1C1C1E</color>
     <color name="gray_600">#9E9E9E</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_200">#F5F5F5</color>
     <color name="red_500">#FF0D2B</color>
     <color name="pink">#DB8EB5</color>  <!-- EDA0C7 -->
 </resources>

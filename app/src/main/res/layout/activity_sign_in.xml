@@ -45,7 +45,7 @@
             android:layout_marginTop="20dp"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:text="@string/sign_in_find_password"
+            android:text="@string/password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inc_input_password" />
