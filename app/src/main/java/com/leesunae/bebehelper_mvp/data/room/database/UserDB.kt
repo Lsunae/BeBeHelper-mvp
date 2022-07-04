@@ -14,14 +14,16 @@ abstract class UserDB : RoomDatabase() {
 
     companion object {
         private var INSTANCE: UserDB? = null
-        fun getInstance(context: Context): UserDB? {
-            if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(
-                    context.applicationContext,
-                    UserDB::class.java, "user.db"
-                ).build()
-            }
-            return INSTANCE
+        fun getInstance(context: Context): UserDB {
+            return INSTANCE ?: Room.databaseBuilder(
+                context.applicationContext,
+                UserDB::class.java, "user.db"
+            )
+                .fallbackToDestructiveMigration()
+                .build()
+                .also {
+                    INSTANCE = it
+                }
         }
 
         fun destroyInstance() {
