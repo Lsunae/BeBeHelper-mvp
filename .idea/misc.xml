@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_18_px_del.xml" value="0.274" />
+        <entry key="app/src/main/res/drawable/ic_keyboard_backspace_black_24dp.xml" value="0.2745" />
         <entry key="app/src/main/res/drawable/menu_item_color.xml" value="0.284" />
         <entry key="app/src/main/res/drawable/navigation_tint.xml" value="0.2805" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.30932971014492755" />
         <entry key="app/src/main/res/layout/fragment_grouping.xml" value="0.5015625" />
         <entry key="app/src/main/res/layout/fragment_info_sharing.xml" value="0.5015625" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.5015625" />
