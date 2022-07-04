@@ -27,4 +27,7 @@ class User {
 
     @ColumnInfo(name = "area")
     var area: String? = null
+
+    @ColumnInfo(name = "image")
+    var image: String? = null
 }
