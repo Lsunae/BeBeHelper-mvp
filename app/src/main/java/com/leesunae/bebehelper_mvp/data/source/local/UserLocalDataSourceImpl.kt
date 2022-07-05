@@ -9,20 +9,51 @@ class UserLocalDataSourceImpl(
     private val appExecutors: AppExecutors,
     private val userDB: UserDB
 ) : UserLocalDataSource {
+    override fun createUser(
+        email: String,
+        password: String,
+        nickName: String,
+        gender: String?,
+        childGender: String?,
+        ageOfChildren: String?,
+        area: String?,
+        image: String?,
+        callback: Callback<Boolean>
+    ) {
+        appExecutors.diskIO.execute {
+            val newUser = User(
+                email = email,
+                password = password,
+                nickname = nickName,
+                gender = null,
+                childGender = null,
+                ageOfChildren = null,
+                area = null,
+                image = null
+            )
+            val insertedPk = userDB.userDao().insertUser(newUser)
+            if (insertedPk == 0L) {
+                appExecutors.mainThread.execute {
+                    callback.onSuccess(true)
+                }
+            }
+        }
+    }
+
     override fun login(email: String, password: String, callback: Callback<Boolean>) {
-        TODO("Not yet implemented")
+
     }
 
     override fun logout(callback: Callback<String>) {
-        TODO("Not yet implemented")
+
     }
 
     override fun isLogin(callback: Callback<Boolean>) {
-        TODO("Not yet implemented")
+
     }
 
     override fun deleteUser(callback: Callback<Boolean>) {
-        TODO("Not yet implemented")
+
     }
 
     override fun updateUser(
@@ -32,11 +63,26 @@ class UserLocalDataSourceImpl(
         image: String,
         callback: Callback<Boolean>
     ) {
-        TODO("Not yet implemented")
+
     }
 
     override fun getUser(callback: Callback<User>) {
-        TODO("Not yet implemented")
+        appExecutors.diskIO.execute {
+            val user = userDB.userDao().getAll()
+            println("local_user_ $user")
+            appExecutors.mainThread.execute {
+                callback.onSuccess(user)
+            }
+
+//            if (userDB.userDao().getUserCount() == 1) {
+//                val user = userDatabase.userDao().getUser()
+//                appExecutors.mainThread.execute {
+//                    callback.onSuccess(user)
+//                }
+//            } else {
+//                callback.onFailure("없음")
+//            }
+        }
     }
 
     companion object {

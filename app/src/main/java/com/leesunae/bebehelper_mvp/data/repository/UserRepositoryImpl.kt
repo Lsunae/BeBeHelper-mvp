@@ -10,22 +10,22 @@ class UserRepositoryImpl private constructor(
         email: String,
         password: String,
         nickName: String,
-        gender: String,
-        childGender: String,
-        ageOfChildren: String,
-        area: String,
-        image: String,
+        gender: String?,
+        childGender: String?,
+        ageOfChildren: String?,
+        area: String?,
+        image: String?,
         callback: Callback<Boolean>
     ) {
-        TODO("Not yet implemented")
+        localDataSource.createUser(email, password, nickName, gender, childGender, ageOfChildren, area, image, callback)
     }
 
     override fun login(email: String, password: String, callback: Callback<Boolean>) {
-        TODO("Not yet implemented")
+
     }
 
     override fun logout(callback: Callback<String>) {
-        TODO("Not yet implemented")
+
     }
 
     override fun updateUser(
@@ -40,15 +40,15 @@ class UserRepositoryImpl private constructor(
         image: String,
         callback: Callback<Boolean>
     ) {
-        TODO("Not yet implemented")
+
     }
 
     override fun getUser(callback: Callback<User>) {
-        TODO("Not yet implemented")
+        localDataSource.getUser(callback)
     }
 
     override fun deleteUser(id: Int, callback: Callback<String>) {
-        TODO("Not yet implemented")
+
     }
 
     companion object {

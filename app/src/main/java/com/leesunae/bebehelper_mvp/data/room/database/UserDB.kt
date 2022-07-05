@@ -10,7 +10,7 @@ import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 @Database(entities = [User::class], version = 1)
 abstract class UserDB : RoomDatabase() {
-    abstract fun userDao(): UserDao?
+    abstract fun userDao(): UserDao
 
     companion object {
         private var INSTANCE: UserDB? = null

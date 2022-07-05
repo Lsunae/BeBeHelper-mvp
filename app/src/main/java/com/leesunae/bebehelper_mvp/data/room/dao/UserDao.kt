@@ -6,15 +6,22 @@ import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 @Dao
 interface UserDao {
+
     @Insert
     fun insertAll(vararg user: User?)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUser(user: User): Long
+
     @Update
-    fun update(user: User)
+    fun updateUser(user: User)
 
     @Query("DELETE FROM User WHERE email = :email")
-    fun delete(email: String)
+    fun deleteUser(email: String)
 
     @Query("SELECT * FROM User WHERE email = :email")
-    fun getAll(email: String)
+    fun getUser(email: String)
+
+    @Query("SELECT * FROM User")
+    fun getAll(): User
 }

@@ -7,11 +7,11 @@ interface UserRepository {
         email: String,
         password: String,
         nickName: String,
-        gender: String,
-        childGender: String,
-        ageOfChildren: String,
-        area: String,
-        image: String,
+        gender: String?,
+        childGender: String?,
+        ageOfChildren: String?,
+        area: String?,
+        image: String?,
         callback: Callback<Boolean>
     )
 
