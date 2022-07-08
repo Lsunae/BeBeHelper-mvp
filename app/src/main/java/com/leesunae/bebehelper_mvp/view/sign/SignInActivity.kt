@@ -40,6 +40,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             tvSignUp.text = span
             tvSignUp.setOnClickListener(object : OnSingleClickListener() {
                 override fun onSingleClick(v: View) {
+
                     val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
                     startActivity(intent)
                 }

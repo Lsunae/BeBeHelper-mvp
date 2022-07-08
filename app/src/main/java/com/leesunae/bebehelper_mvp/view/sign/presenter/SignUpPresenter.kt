@@ -14,6 +14,7 @@ class SignUpPresenter(
         password: String,
         nickName: String
     ) {
+        println("presenter_sign_up_ $userRepository")
         userRepository.createUser(
             email,
             password,
@@ -25,11 +26,13 @@ class SignUpPresenter(
             null,
             object : Callback<Boolean> {
                 override fun onSuccess(response: Boolean) {
+                    println("presenter_sign_up_success_response $response")
                     Log.i("[${javaClass.name}]", "$response")
                     view.showMessage(response)
                 }
 
                 override fun onFailure(message: String) {
+                    println("presenter_sign_up_failure_response $message")
                     Log.e("[${javaClass.name}]", message)
                 }
             })

@@ -20,7 +20,7 @@ interface UserDao {
     fun deleteUser(email: String)
 
     @Query("SELECT * FROM User WHERE email = :email")
-    fun getUser(email: String)
+    fun getUser(email: String): User
 
     @Query("SELECT * FROM User")
     fun getAll(): User
