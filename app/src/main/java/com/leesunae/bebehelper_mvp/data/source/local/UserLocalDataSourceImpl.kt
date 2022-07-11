@@ -32,10 +32,10 @@ class UserLocalDataSourceImpl(
                 image = null
             )
             val insertedPk = userDB.userDao().insertUser(newUser)
-            if (insertedPk == 0L) {
-                appExecutors.mainThread.execute {
-                    callback.onSuccess(true)
-                }
+            println("insertedPk_ $insertedPk")
+            appExecutors.mainThread.execute {
+                println("local_insertedSuccess_ $insertedPk")
+                callback.onSuccess(true)
             }
         }
     }
@@ -66,10 +66,29 @@ class UserLocalDataSourceImpl(
 
     }
 
-    override fun getUser(callback: Callback<User>) {
+    override fun getUser(email: String, callback: Callback<User>) {
+        appExecutors.diskIO.execute {
+            val user = userDB.userDao().getUser(email)
+            println("local_user_ $user")
+            appExecutors.mainThread.execute {
+                callback.onSuccess(user)
+            }
+
+//            if (userDB.userDao().getUserCount() == 1) {
+//                val user = userDatabase.userDao().getUser()
+//                appExecutors.mainThread.execute {
+//                    callback.onSuccess(user)
+//                }
+//            } else {
+//                callback.onFailure("없음")
+//            }
+        }
+    }
+
+    override fun getUserAll(callback: Callback<List<User>>) {
         appExecutors.diskIO.execute {
             val user = userDB.userDao().getAll()
-            println("local_user_ $user")
+            println("local_user_all_ $user")
             appExecutors.mainThread.execute {
                 callback.onSuccess(user)
             }

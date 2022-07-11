@@ -43,8 +43,12 @@ class UserRepositoryImpl private constructor(
 
     }
 
-    override fun getUser(callback: Callback<User>) {
-        localDataSource.getUser(callback)
+    override fun getUser(email:String, callback: Callback<User>) {
+        localDataSource.getUser(email, callback)
+    }
+
+    override fun getUserAll(callback: Callback<List<User>>) {
+        localDataSource.getUserAll(callback)
     }
 
     override fun deleteUser(id: Int, callback: Callback<String>) {

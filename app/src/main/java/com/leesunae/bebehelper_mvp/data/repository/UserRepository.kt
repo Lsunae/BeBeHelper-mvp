@@ -36,7 +36,9 @@ interface UserRepository {
         callback: Callback<Boolean>
     )
 
-    fun getUser(callback: Callback<User>)
+    fun getUser(email:String, callback: Callback<User>)
+
+    fun getUserAll(callback: Callback<List<User>>)
 
     fun deleteUser(id: Int, callback: Callback<String>)
 }

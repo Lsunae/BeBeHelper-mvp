@@ -27,5 +27,6 @@ interface UserLocalDataSource {
         callback: Callback<Boolean>
     )
 
-    fun getUser(callback: Callback<User>)
+    fun getUser(email: String, callback: Callback<User>)
+    fun getUserAll(callback: Callback<List<User>>)
 }

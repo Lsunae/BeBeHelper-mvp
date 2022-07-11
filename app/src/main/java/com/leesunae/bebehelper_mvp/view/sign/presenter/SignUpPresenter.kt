@@ -3,6 +3,7 @@ package com.leesunae.bebehelper_mvp.view.sign.presenter
 import android.util.Log
 import com.leesunae.bebehelper_mvp.data.repository.Callback
 import com.leesunae.bebehelper_mvp.data.repository.UserRepository
+import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 class SignUpPresenter(
     private val userRepository: UserRepository,
@@ -14,7 +15,6 @@ class SignUpPresenter(
         password: String,
         nickName: String
     ) {
-        println("presenter_sign_up_ $userRepository")
         userRepository.createUser(
             email,
             password,
@@ -46,7 +46,18 @@ class SignUpPresenter(
 
     }
 
-    override fun getUser() {
+    override fun getUserAll() {
+        userRepository.getUserAll(object : Callback<List<User>> {
+            override fun onSuccess(response: List<User>) {
+                println("presenter_sign_up_success_response_getUserAll_ $response")
+                Log.i("[${javaClass.name}]", "$response")
+//                view.getUserAll(response)
+            }
 
+            override fun onFailure(message: String) {
+                println("presenter_sign_up_failure_response_getUserAll_ $message")
+                Log.e("[${javaClass.name}]", message)
+            }
+        })
     }
 }

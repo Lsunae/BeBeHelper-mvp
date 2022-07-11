@@ -23,5 +23,5 @@ interface UserDao {
     fun getUser(email: String): User
 
     @Query("SELECT * FROM User")
-    fun getAll(): User
+    fun getAll(): List<User>
 }

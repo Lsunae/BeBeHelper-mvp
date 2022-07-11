@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.leesunae.bebehelper_mvp.Injection
 import com.leesunae.bebehelper_mvp.R
+import com.leesunae.bebehelper_mvp.data.room.entity.User
 import com.leesunae.bebehelper_mvp.databinding.ActivitySignUpBinding
 import com.leesunae.bebehelper_mvp.util.OnSingleClickListener
 import com.leesunae.bebehelper_mvp.view.base.BaseActivity
@@ -25,8 +26,12 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     override fun showMessage(message: Boolean) {
         println("signUp_show_message_ $message")
         if (message) {
-            presenter.getUser()
+            presenter.getUserAll()
         }
+    }
+
+    override fun getUserAll(message: List<User>) {
+
     }
 
     private fun setUpView() {
