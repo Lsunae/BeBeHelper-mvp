@@ -17,6 +17,7 @@
     <!-- 회원가입 -->
     <string name="sign_up">회원가입</string>
 
+    <string name="sign_up_check">중복체크</string>
     <string name="nickname">닉네임</string>
     <string name="user_gender">회원님 성별</string>
     <string name="child_gender">아이 성별</string>
@@ -29,5 +30,11 @@
     <string name="nickname_format">한글, 영문, 숫자 포함 1~10자로 입력해주세요.</string>
     <string name="input_email">이메일을 입력해주세요.</string>
     <string name="input_password">비밀번호를 입력해주세요.</string>
+    <string name="input_password_confirm">비밀번호를 한번 더 입력해주세요.</string>
     <string name="input_nickname">닉네임을 입력해주세요.</string>
+    <string name="child_age_selection">아이의 나이를 선택해주세요.</string>
+
+    <string name="gender_male">남자</string>
+    <string name="gender_female">여자</string>
+
 </resources>

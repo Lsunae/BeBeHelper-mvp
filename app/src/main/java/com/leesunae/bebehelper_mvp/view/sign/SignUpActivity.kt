@@ -2,6 +2,8 @@ package com.leesunae.bebehelper_mvp.view.sign
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.leesunae.bebehelper_mvp.Injection
 import com.leesunae.bebehelper_mvp.R
 import com.leesunae.bebehelper_mvp.data.room.entity.User
@@ -49,6 +51,23 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     clickRegister()
                 }
             })
+
+
+            val ageArray = resources.getStringArray(R.array.child_age_array)
+            val ageAdapter: ArrayAdapter<String> =
+                ArrayAdapter(this@SignUpActivity, R.layout.item_age, ageArray)
+            tvAgeItem.setAdapter(ageAdapter)
+
+            tvAgeItem.onItemClickListener =
+                AdapterView.OnItemClickListener { adapterView, view, position, id ->
+                    tvShowItem.text = adapterView.getItemAtPosition(position).toString()
+                }
+
+
+//            tvAgeItem.setOnFocusChangeListener { view, b ->
+//                println("isFocus_ $b")
+//                isAgeItem = b
+//            }
         }
     }
 

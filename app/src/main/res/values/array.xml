@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="child_age_array">
+        <item>2세</item>
+        <item>3세</item>
+        <item>4세</item>
+        <item>5세</item>
+        <item>6세</item>
+    </string-array>
+</resources>
