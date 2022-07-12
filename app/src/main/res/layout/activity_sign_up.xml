@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="20dp"
-                        android:background="@color/pink"
+                        android:background="@drawable/round_4_pink"
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/sign_up_check"
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="20dp"
-                        android:background="@color/pink"
+                        android:background="@drawable/round_4_pink"
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/sign_up_check"
@@ -338,8 +338,7 @@
                             android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:text="아이템"
-                            android:textSize="20dp"
-                            android:visibility="@{isAgeItem ? View.VISIBLE : View.GONE}" />
+                            android:textSize="20dp" />
 
                     </LinearLayout>
 
@@ -353,7 +352,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
-                    android:background="@color/pink"
+                    android:background="@drawable/round_4_pink"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="@string/sign_up"
