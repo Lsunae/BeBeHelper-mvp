@@ -32,7 +32,11 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         }
     }
 
-    override fun getUserAll(message: List<User>) {
+    override fun checkedEmail(isChecked: Boolean) {
+
+    }
+
+    override fun checkedNickname(isChecked: Boolean) {
 
     }
 
@@ -46,13 +50,15 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     }
                 })
             }
+
+            // 회원가입 클릭
             tvRegister.setOnClickListener(object : OnSingleClickListener() {
                 override fun onSingleClick(v: View) {
                     clickRegister()
                 }
             })
 
-
+            // 아이 나이 선택
             val ageArray = resources.getStringArray(R.array.child_age_array)
             val ageAdapter: ArrayAdapter<String> =
                 ArrayAdapter(this@SignUpActivity, R.layout.item_age, ageArray)
@@ -63,14 +69,23 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     tvShowItem.text = adapterView.getItemAtPosition(position).toString()
                 }
 
+            // 이메일 중복체크
+            tvEmailCheck.setOnClickListener(object : OnSingleClickListener() {
+                override fun onSingleClick(v: View) {
 
-//            tvAgeItem.setOnFocusChangeListener { view, b ->
-//                println("isFocus_ $b")
-//                isAgeItem = b
-//            }
+                }
+            })
+
+            // 닉네임 중복체크
+            tvEmailCheck.setOnClickListener(object : OnSingleClickListener() {
+                override fun onSingleClick(v: View) {
+
+                }
+            })
         }
     }
 
+    /** 회원가입 버튼 클릭 */
     private fun clickRegister() {
         binding.apply {
             val email = inputEmail.text.toString()

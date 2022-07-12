@@ -27,6 +27,15 @@ interface UserLocalDataSource {
         callback: Callback<Boolean>
     )
 
+    /** 유저 정보 조회 */
     fun getUser(email: String, callback: Callback<User>)
+
+    /** 전체 유저 목록 조회 */
     fun getUserAll(callback: Callback<List<User>>)
+
+    /** 이메일 체크 */
+    fun checkEmail(email: String, callback: Callback<Boolean>)
+
+    /** 닉네임 체크 */
+    fun checkNickname(nickname: String, callback: Callback<Boolean>)
 }

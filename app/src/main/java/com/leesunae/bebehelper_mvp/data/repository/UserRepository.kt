@@ -1,5 +1,6 @@
 package com.leesunae.bebehelper_mvp.data.repository
 
+import androidx.room.Query
 import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 interface UserRepository {
@@ -41,4 +42,10 @@ interface UserRepository {
     fun getUserAll(callback: Callback<List<User>>)
 
     fun deleteUser(id: Int, callback: Callback<String>)
+
+    /** 이메일 체크 */
+    fun checkEmail(email: String, callback: Callback<Boolean>)
+
+    /** 닉네임 체크 */
+    fun checkNickname(nickname: String, callback: Callback<Boolean>)
 }

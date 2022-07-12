@@ -73,15 +73,6 @@ class UserLocalDataSourceImpl(
             appExecutors.mainThread.execute {
                 callback.onSuccess(user)
             }
-
-//            if (userDB.userDao().getUserCount() == 1) {
-//                val user = userDatabase.userDao().getUser()
-//                appExecutors.mainThread.execute {
-//                    callback.onSuccess(user)
-//                }
-//            } else {
-//                callback.onFailure("없음")
-//            }
         }
     }
 
@@ -92,15 +83,32 @@ class UserLocalDataSourceImpl(
             appExecutors.mainThread.execute {
                 callback.onSuccess(user)
             }
+        }
+    }
 
-//            if (userDB.userDao().getUserCount() == 1) {
-//                val user = userDatabase.userDao().getUser()
-//                appExecutors.mainThread.execute {
-//                    callback.onSuccess(user)
-//                }
-//            } else {
-//                callback.onFailure("없음")
-//            }
+    override fun checkEmail(email: String, callback: Callback<Boolean>) {
+        appExecutors.diskIO.execute {
+            val userList = userDB.userDao().checkEmail(email)
+            println("local_check_email_ $userList")
+
+            val isChecked = userList.isNullOrEmpty()
+
+            appExecutors.mainThread.execute {
+                callback.onSuccess(isChecked)
+            }
+        }
+    }
+
+    override fun checkNickname(nickname: String, callback: Callback<Boolean>) {
+        appExecutors.diskIO.execute {
+            val userList = userDB.userDao().checkNickname(nickname)
+            println("local_check_nickname_ $userList")
+
+            val isChecked = userList.isNullOrEmpty()
+
+            appExecutors.mainThread.execute {
+                callback.onSuccess(isChecked)
+            }
         }
     }
 

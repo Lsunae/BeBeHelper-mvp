@@ -1,11 +1,10 @@
 package com.leesunae.bebehelper_mvp.view.sign.presenter
 
-import com.leesunae.bebehelper_mvp.data.room.entity.User
-
 interface SignUpContract {
     interface View {
         fun showMessage(message: Boolean)
-        fun getUserAll(message: List<User>)
+        fun checkedEmail(isChecked: Boolean)
+        fun checkedNickname(isChecked: Boolean)
     }
 
     interface Presenter {
@@ -15,9 +14,12 @@ interface SignUpContract {
             nickName: String
         )
 
-        fun checkEmail(email: String)
-        fun checkNickname(nickName: String)
-
         fun getUserAll()
+
+        /** 이메일 체크 */
+        fun checkEmail(email: String)
+
+        /** 닉네임 체크 */
+        fun checkNickname(nickName: String)
     }
 }

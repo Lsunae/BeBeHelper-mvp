@@ -55,6 +55,15 @@ class UserRepositoryImpl private constructor(
 
     }
 
+    override fun checkEmail(email: String, callback: Callback<Boolean>) {
+        localDataSource.checkEmail(email, callback)
+    }
+
+    override fun checkNickname(nickname: String, callback: Callback<Boolean>) {
+        localDataSource.checkNickname(nickname, callback)
+    }
+
+
     companion object {
         fun getInstance(localDataSource: UserLocalDataSource): UserRepository =
             UserRepositoryImpl(localDataSource)
