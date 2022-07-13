@@ -48,16 +48,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/email_layout"
+                        android:theme="@style/EditTextStyle"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_weight="1"
                         android:hint="@string/input_email"
                         app:errorEnabled="true">
@@ -85,6 +87,7 @@
                         android:text="@string/sign_up_check"
                         android:textColor="@color/white"
                         android:textSize="15sp"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nickname_layout" />
@@ -163,6 +166,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_marginTop="3dp"
                         android:layout_weight="1"
                         android:hint="@string/nickname"
@@ -190,6 +194,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/sign_up_check"
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -332,12 +337,64 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <TextView
-                            android:id="@+id/tv_show_item"
+                            android:id="@+id/tv_show_age_item"
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
                             android:layout_marginTop="20dp"
                             android:gravity="center"
-                            android:text="아이템"
+                            android:text="@string/child_age"
+                            android:textSize="20dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_child_age">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:minWidth="80dp"
+                        android:text="@string/area" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:hint="@string/area_selection">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/tv_area_item"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:paddingHorizontal="10dp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/tv_show_area_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:text="@string/area"
                             android:textSize="20dp" />
 
                     </LinearLayout>
@@ -352,19 +409,21 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="50dp"
                     android:background="@drawable/round_4_pink"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="@string/sign_up"
                     android:textColor="@color/white"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ll_child_age" />
+                    app:layout_constraintTop_toBottomOf="@+id/ll_area" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
 
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

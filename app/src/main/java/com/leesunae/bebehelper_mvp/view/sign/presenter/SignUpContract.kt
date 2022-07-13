@@ -3,8 +3,8 @@ package com.leesunae.bebehelper_mvp.view.sign.presenter
 interface SignUpContract {
     interface View {
         fun showMessage(message: Boolean)
-        fun checkedEmail(isChecked: Boolean)
-        fun checkedNickname(isChecked: Boolean)
+        fun checkedEmail(email: String, isChecked: Boolean)
+        fun checkedNickname(nickname: String, isChecked: Boolean)
     }
 
     interface Presenter {
@@ -17,7 +17,7 @@ interface SignUpContract {
         fun getUserAll()
 
         /** 이메일 체크 */
-        fun checkEmail(email: String)
+        fun checkEmail(email: String): Boolean
 
         /** 닉네임 체크 */
         fun checkNickname(nickName: String)

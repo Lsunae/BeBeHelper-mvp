@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.31979166666666664" />
+        <entry key="app/src/main/res/drawable/bg_round_limited_dialog.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_18_px_del.xml" value="0.274" />
         <entry key="app/src/main/res/drawable/ic_keyboard_backspace_black_24dp.xml" value="0.2745" />
         <entry key="app/src/main/res/drawable/menu_item_color.xml" value="0.284" />
@@ -11,7 +12,8 @@
         <entry key="app/src/main/res/drawable/round_4.xml" value="0.1865" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2760416666666667" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialog.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/fragment_grouping.xml" value="0.5015625" />
         <entry key="app/src/main/res/layout/fragment_info_sharing.xml" value="0.5015625" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.5015625" />

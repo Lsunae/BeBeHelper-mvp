@@ -52,18 +52,18 @@ class SignUpPresenter(
         })
     }
 
-    override fun checkEmail(email: String) {
+    override fun checkEmail(email: String): Boolean {
         userRepository.checkEmail(email, object : Callback<Boolean> {
             override fun onSuccess(response: Boolean) {
                 println("presenter_sign_up_success_checkEmail_ $response")
                 Log.i("[${javaClass.name}]", "$response")
-                view.checkedEmail(response)
+                view.checkedEmail(email, response)
             }
 
             override fun onFailure(message: String) {
                 println("presenter_sign_up_failure_checkEmail_ $message")
                 Log.e("[${javaClass.name}]", message)
-                view.checkedEmail(false)
+                view.checkedEmail(email, false)
             }
         })
     }
@@ -73,13 +73,13 @@ class SignUpPresenter(
             override fun onSuccess(response: Boolean) {
                 println("presenter_sign_up_success_checkNickname_ $response")
                 Log.i("[${javaClass.name}]", "$response")
-                view.checkedNickname(response)
+                view.checkedNickname(nickName, response)
             }
 
             override fun onFailure(message: String) {
                 println("presenter_sign_up_failure_checkNickname_ $message")
                 Log.e("[${javaClass.name}]", message)
-                view.checkedNickname(false)
+                view.checkedNickname(nickName, false)
             }
         })
     }
