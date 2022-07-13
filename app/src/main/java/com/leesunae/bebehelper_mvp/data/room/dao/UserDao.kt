@@ -35,6 +35,6 @@ interface UserDao {
     fun checkEmail(email: String): List<User>?
 
     /** 닉네임 체크 */
-    @Query("SELECT * FROM User WHERE email = :nickname")
+    @Query("SELECT * FROM User WHERE nickname = :nickname")
     fun checkNickname(nickname: String): List<User>?
 }
