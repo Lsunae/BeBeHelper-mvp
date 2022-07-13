@@ -6,6 +6,9 @@
     <string name="recommended_activity">추천 활동</string>
     <string name="my_page">마이페이지</string>
 
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+
     <string name="email">이메일</string>
     <string name="password">비밀번호</string>
     <string name="find_password">비밀번호 찾기</string>
@@ -16,6 +19,16 @@
 
     <!-- 회원가입 -->
     <string name="sign_up">회원가입</string>
+    <string name="sign_up_email_error_format">유효한 이메일 주소를 입력해주세요.</string>
+    <string name="sign_up_email_error_invalid">입력된 이메일은 사용할 수 없습니다.</string>
+    <string name="sign_up_email_error_empty">이메일을 입력해주세요.</string>
+    <string name="sign_up_nickname_error_empty">닉네임을 입력해주세요.</string>
+    <string name="sign_up_name_error_format">닉네임은 한글, 영문, 숫자만 입력 가능합니다.</string>
+    <string name="sign_up_nickname_error_duplicate">이미 사용중이거나 사용할 수 없는 닉네임입니다.</string>
+    <string name="sign_up_password_error_empty">비밀번호를 입력해주세요.</string>
+    <string name="sign_up_password_error_format">영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</string>
+    <string name="sign_up_password_confirm_error_empty">비밀번호를 한번 더 입력해주세요.</string>
+    <string name="sign_up_password_confirm_error_invalid">비밀번호 입력 정보가 일치하지 않습니다.</string>
 
     <string name="sign_up_check">중복체크</string>
     <string name="nickname">닉네임</string>
@@ -33,6 +46,7 @@
     <string name="input_password_confirm">비밀번호를 한번 더 입력해주세요.</string>
     <string name="input_nickname">닉네임을 입력해주세요.</string>
     <string name="child_age_selection">아이의 나이를 선택해주세요.</string>
+    <string name="area_selection">거주지를 선택해주세요.</string>
 
     <string name="gender_male">남자</string>
     <string name="gender_female">여자</string>
