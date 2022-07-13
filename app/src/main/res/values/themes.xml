@@ -17,4 +17,12 @@
         <item name="windowNoTitle">true</item>
         <item name="android:textColor">@color/gray_900</item>
     </style>
+
+    <style name="EditTextStyle" parent="Widget.Design.TextInputLayout">
+        <item name="colorControlNormal">@color/gray_300</item>  // unFocus 상태일때 밑줄 색.
+        <item name="boxStrokeColor">@color/pink</item> // Focus 상태일때 밑줄 색.
+        <item name="android:textCursorDrawable">@color/pink</item>  // cursor 색.
+        <item name="android:textColorHint">@color/gray_300</item>  // hint 색
+        <item name="hintTextColor">@color/pink</item>   // floating hint 색
+    </style>
 </resources>
