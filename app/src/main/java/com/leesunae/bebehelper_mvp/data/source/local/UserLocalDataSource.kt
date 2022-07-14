@@ -15,7 +15,7 @@ interface UserLocalDataSource {
         image: String?,
         callback: Callback<Boolean>
     )
-    fun login(email: String, password: String, callback: Callback<Boolean>)
+    fun login(email: String, password: String, callback: Callback<User>)
     fun logout(callback: Callback<String>)
     fun isLogin(callback: Callback<Boolean>)
     fun deleteUser(callback: Callback<Boolean>)

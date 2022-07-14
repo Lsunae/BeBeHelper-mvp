@@ -18,7 +18,7 @@ interface UserRepository {
     fun login(
         email: String,
         password: String,
-        callback: Callback<Boolean>
+        callback: Callback<User>
     )
 
     fun logout(callback: Callback<String>)

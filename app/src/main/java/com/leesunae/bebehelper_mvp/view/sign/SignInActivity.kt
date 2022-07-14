@@ -7,18 +7,29 @@ import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.leesunae.bebehelper_mvp.App
+import com.leesunae.bebehelper_mvp.Injection
 import com.leesunae.bebehelper_mvp.R
 import com.leesunae.bebehelper_mvp.databinding.ActivitySignInBinding
 import com.leesunae.bebehelper_mvp.util.OnSingleClickListener
 import com.leesunae.bebehelper_mvp.view.MainActivity
 import com.leesunae.bebehelper_mvp.view.base.BaseActivity
+import com.leesunae.bebehelper_mvp.view.sign.presenter.SignInContract
+import com.leesunae.bebehelper_mvp.view.sign.presenter.SignInPresenter
 
-class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
+class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in),
+    SignInContract.View {
+    private lateinit var presenter: SignInContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        presenter = SignInPresenter(Injection.userRepository(), this)
         setUpView()
+    }
+
+    override fun loginSuccess(message: Boolean) {
+
     }
 
     private fun setUpView() {

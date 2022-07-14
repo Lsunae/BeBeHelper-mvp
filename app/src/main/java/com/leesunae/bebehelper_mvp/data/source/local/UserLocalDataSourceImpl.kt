@@ -40,8 +40,13 @@ class UserLocalDataSourceImpl(
         }
     }
 
-    override fun login(email: String, password: String, callback: Callback<Boolean>) {
-
+    override fun login(email: String, password: String, callback: Callback<User>) {
+        appExecutors.diskIO.execute {
+            val loginUser = userDB.userDao().getLoginUser(email, password)
+            appExecutors.mainThread.execute {
+                callback.onSuccess(loginUser)
+            }
+        }
     }
 
     override fun logout(callback: Callback<String>) {

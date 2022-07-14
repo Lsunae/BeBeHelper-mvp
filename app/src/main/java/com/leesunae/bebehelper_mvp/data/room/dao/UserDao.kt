@@ -23,6 +23,10 @@ interface UserDao {
     fun deleteUser(email: String)
 
     /** 유저 조회 */
+    @Query("SELECT * FROM User WHERE email = :email and password = :password")
+    fun getLoginUser(email: String, password: String): User
+
+    /** 유저 조회 */
     @Query("SELECT * FROM User WHERE email = :email")
     fun getUser(email: String): User
 
