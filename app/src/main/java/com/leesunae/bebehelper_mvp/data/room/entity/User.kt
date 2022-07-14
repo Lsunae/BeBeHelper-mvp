@@ -26,7 +26,7 @@ data class User(
     var childGender: String? = null,
 
     @ColumnInfo(name = "ageOfChildren")
-    var ageOfChildren: String? = null,
+    var ageOfChildren: String? = "",
 
     @ColumnInfo(name = "area")
     var area: String? = null,

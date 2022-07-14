@@ -1,6 +1,7 @@
 package com.leesunae.bebehelper_mvp.view.sign.presenter
 
 import android.util.Log
+import com.leesunae.bebehelper_mvp.data.model.UserItem
 import com.leesunae.bebehelper_mvp.data.repository.Callback
 import com.leesunae.bebehelper_mvp.data.repository.UserRepository
 import com.leesunae.bebehelper_mvp.data.room.entity.User
@@ -10,25 +11,22 @@ class SignUpPresenter(
     private val view: SignUpContract.View
 ) :
     SignUpContract.Presenter {
-    override fun createUser(
-        email: String,
-        password: String,
-        nickName: String
-    ) {
+    override fun createUser(user: UserItem) {
+        println("presenter_user_ $user")
         userRepository.createUser(
-            email,
-            password,
-            nickName,
-            null,
-            null,
-            null,
-            null,
+            user.email,
+            user.password,
+            user.nickname,
+            user.gender,
+            user.childGender,
+            user.ageOfChildren,
+            user.area,
             null,
             object : Callback<Boolean> {
                 override fun onSuccess(response: Boolean) {
                     println("presenter_sign_up_success_response $response")
                     Log.i("[${javaClass.name}]", "$response")
-                    view.showMessage(response)
+                    view.createUserSuccess(response)
                 }
 
                 override fun onFailure(message: String) {
@@ -52,7 +50,7 @@ class SignUpPresenter(
         })
     }
 
-    override fun checkEmail(email: String): Boolean {
+    override fun checkEmail(email: String) {
         userRepository.checkEmail(email, object : Callback<Boolean> {
             override fun onSuccess(response: Boolean) {
                 println("presenter_sign_up_success_checkEmail_ $response")

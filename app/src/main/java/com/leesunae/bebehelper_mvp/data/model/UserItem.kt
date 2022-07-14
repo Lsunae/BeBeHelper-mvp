@@ -1,7 +1,5 @@
 package com.leesunae.bebehelper_mvp.data.model
 
-import android.provider.ContactsContract
-
 data class UserItem(
     var email: String = "",
     var password: String = "",

@@ -1,23 +1,21 @@
 package com.leesunae.bebehelper_mvp.view.sign.presenter
 
+import com.leesunae.bebehelper_mvp.data.model.UserItem
+
 interface SignUpContract {
     interface View {
-        fun showMessage(message: Boolean)
+        fun createUserSuccess(message: Boolean)
         fun checkedEmail(email: String, isChecked: Boolean)
         fun checkedNickname(nickname: String, isChecked: Boolean)
     }
 
     interface Presenter {
-        fun createUser(
-            email: String,
-            password: String,
-            nickName: String
-        )
+        fun createUser(user: UserItem)
 
         fun getUserAll()
 
         /** 이메일 체크 */
-        fun checkEmail(email: String): Boolean
+        fun checkEmail(email: String)
 
         /** 닉네임 체크 */
         fun checkNickname(nickName: String)

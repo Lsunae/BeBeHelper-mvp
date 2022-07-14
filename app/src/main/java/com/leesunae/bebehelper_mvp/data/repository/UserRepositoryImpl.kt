@@ -35,7 +35,7 @@ class UserRepositoryImpl private constructor(
         nickName: String,
         gender: String,
         childGender: String,
-        ageOfChildren: String,
+        ageOfChildren: String?,
         area: String,
         image: String,
         callback: Callback<Boolean>

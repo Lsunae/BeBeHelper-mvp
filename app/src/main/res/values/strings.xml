@@ -19,6 +19,7 @@
 
     <!-- 회원가입 -->
     <string name="sign_up">회원가입</string>
+    <string name="sign_up_success">회원가입이 완료되었습니다.</string>
     <string name="sign_up_email_error_format">유효한 이메일 주소를 입력해주세요.</string>
     <string name="sign_up_email_error_invalid">입력된 이메일은 사용할 수 없습니다.</string>
     <string name="sign_up_email_error_empty">이메일을 입력해주세요.</string>

@@ -25,10 +25,10 @@ class UserLocalDataSourceImpl(
                 email = email,
                 password = password,
                 nickname = nickName,
-                gender = null,
-                childGender = null,
-                ageOfChildren = null,
-                area = null,
+                gender = gender,
+                childGender = childGender,
+                ageOfChildren = ageOfChildren,
+                area = area,
                 image = null
             )
             val insertedPk = userDB.userDao().insertUser(newUser)

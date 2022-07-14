@@ -54,14 +54,14 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/email_layout"
-                        android:theme="@style/EditTextStyle"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/EditTextStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
                         android:layout_weight="1"
                         android:hint="@string/input_email"
+                        android:theme="@style/EditTextStyle"
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +96,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/EditTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -107,6 +107,7 @@
                     app:errorEnabled="true"
                     app:helperText="@string/password_format"
                     app:helperTextEnabled="true"
+                    app:helperTextTextColor="@color/gray_600"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ll_email">
@@ -124,7 +125,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password_confirm_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/EditTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -135,6 +136,7 @@
                     app:errorEnabled="true"
                     app:helperText="@string/password_format"
                     app:helperTextEnabled="true"
+                    app:helperTextTextColor="@color/gray_600"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/password_layout">
@@ -162,17 +164,18 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/nickname_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/EditTextStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
                         android:layout_marginTop="3dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_weight="1"
                         android:hint="@string/nickname"
                         app:errorEnabled="true"
                         app:helperText="@string/nickname_format"
-                        app:helperTextEnabled="true">
+                        app:helperTextEnabled="true"
+                        app:helperTextTextColor="@color/gray_600">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/input_nickname"
@@ -194,9 +197,9 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/sign_up_check"
-                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="15sp"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nickname_layout" />
@@ -233,6 +236,7 @@
                             android:id="@+id/rb_parent_female"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:checked="true"
                             android:minWidth="0dp"
                             android:minHeight="32dp"
                             android:paddingEnd="18dp"
@@ -277,16 +281,17 @@
                         android:paddingHorizontal="20dp">
 
                         <RadioButton
-                            android:id="@+id/rb_female_3"
+                            android:id="@+id/rb_child_female"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:checked="true"
                             android:minWidth="0dp"
                             android:minHeight="32dp"
                             android:paddingEnd="18dp"
                             android:text="@string/gender_female" />
 
                         <RadioButton
-                            android:id="@+id/rb_period_5"
+                            android:id="@+id/rb_child_male"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:minHeight="32dp"
@@ -336,14 +341,14 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/tv_show_age_item"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_marginTop="20dp"
-                            android:gravity="center"
-                            android:text="@string/child_age"
-                            android:textSize="20dp" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/tv_show_age_item"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="60dp"-->
+                        <!--                            android:layout_marginTop="20dp"-->
+                        <!--                            android:gravity="center"-->
+                        <!--                            android:text="@string/child_age"-->
+                        <!--                            android:textSize="20dp" />-->
 
                     </LinearLayout>
 
@@ -388,14 +393,14 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/tv_show_area_item"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_marginTop="20dp"
-                            android:gravity="center"
-                            android:text="@string/area"
-                            android:textSize="20dp" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/tv_show_area_item"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="60dp"-->
+                        <!--                            android:layout_marginTop="20dp"-->
+                        <!--                            android:gravity="center"-->
+                        <!--                            android:text="@string/area"-->
+                        <!--                            android:textSize="20dp" />-->
 
                     </LinearLayout>
 

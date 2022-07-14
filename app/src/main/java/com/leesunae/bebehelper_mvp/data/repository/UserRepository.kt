@@ -1,6 +1,5 @@
 package com.leesunae.bebehelper_mvp.data.repository
 
-import androidx.room.Query
 import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 interface UserRepository {
@@ -31,7 +30,7 @@ interface UserRepository {
         nickName: String,
         gender: String,
         childGender: String,
-        ageOfChildren: String,
+        ageOfChildren: String?,
         area: String,
         image: String,
         callback: Callback<Boolean>
