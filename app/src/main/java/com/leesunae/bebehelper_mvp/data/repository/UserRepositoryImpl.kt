@@ -20,7 +20,7 @@ class UserRepositoryImpl private constructor(
         localDataSource.createUser(email, password, nickName, gender, childGender, ageOfChildren, area, image, callback)
     }
 
-    override fun login(email: String, password: String, callback: Callback<User>) {
+    override fun login(email: String, password: String, callback: Callback<User?>) {
         localDataSource.login(email, password, callback)
     }
 

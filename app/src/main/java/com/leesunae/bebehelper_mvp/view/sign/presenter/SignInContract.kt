@@ -1,15 +1,15 @@
 package com.leesunae.bebehelper_mvp.view.sign.presenter
 
-import com.leesunae.bebehelper_mvp.data.model.UserItem
+import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 interface SignInContract {
     interface View {
-        fun loginSuccess(message: Boolean)
+        fun loginSuccess(isLogin: Boolean, user: User?)
     }
 
     interface Presenter {
 
-        fun login(user: UserItem)
+        fun login(email: String, password: String)
 
     }
 }

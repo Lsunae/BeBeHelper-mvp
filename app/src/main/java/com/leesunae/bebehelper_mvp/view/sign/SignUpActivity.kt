@@ -177,7 +177,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         user.isCheckedPassword = checkPassword()
         if (user.isCheckedEmail && user.isCheckedNickname && user.isCheckedPassword && user.gender.isNotEmpty() && user.childGender.isNotEmpty() && user.ageOfChildren.isNotEmpty() && user.area.isNotEmpty()) {
             dialog.apply {
-                showDialog("", Utils.string(this@SignUpActivity, R.string.sign_up_success), true)
+                showDialog("", Utils.string(this@SignUpActivity, R.string.success), true)
                 setOkClickListener(object : CustomDialog.OkClickListener {
                     override fun okClick() {
                         //note 로그인 처리 필요
@@ -195,7 +195,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 dialog.apply {
                     showDialog(
                         "",
-                        Utils.string(this@SignUpActivity, R.string.sign_up_email_error_empty),
+                        Utils.string(this@SignUpActivity, R.string.email_error_empty),
                         true
                     )
                     setOkClickListener(object : CustomDialog.OkClickListener {
@@ -228,7 +228,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 dialog.apply {
                     showDialog(
                         "",
-                        Utils.string(this@SignUpActivity, R.string.sign_up_password_error_empty),
+                        Utils.string(this@SignUpActivity, R.string.password_error_empty),
                         true
                     )
                     setOkClickListener(object : CustomDialog.OkClickListener {
@@ -242,7 +242,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 dialog.apply {
                     showDialog(
                         "",
-                        Utils.string(this@SignUpActivity, R.string.sign_up_password_error_format),
+                        Utils.string(this@SignUpActivity, R.string.password_error_format),
                         true
                     )
                     setOkClickListener(object : CustomDialog.OkClickListener {
@@ -258,7 +258,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                         "",
                         Utils.string(
                             this@SignUpActivity,
-                            R.string.sign_up_password_confirm_error_empty
+                            R.string.password_confirm_error_empty
                         ),
                         true
                     )
@@ -273,7 +273,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 dialog.apply {
                     showDialog(
                         "",
-                        Utils.string(this@SignUpActivity, R.string.sign_up_password_error_format),
+                        Utils.string(this@SignUpActivity, R.string.password_error_format),
                         true
                     )
                     setOkClickListener(object : CustomDialog.OkClickListener {
@@ -289,7 +289,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                         "",
                         Utils.string(
                             this@SignUpActivity,
-                            R.string.sign_up_password_confirm_error_invalid
+                            R.string.password_confirm_error_invalid
                         ),
                         true
                     )
@@ -317,7 +317,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 dialog.apply {
                     showDialog(
                         "",
-                        Utils.string(this@SignUpActivity, R.string.sign_up_nickname_error_empty),
+                        Utils.string(this@SignUpActivity, R.string.nickname_error_empty),
                         true
                     )
                     setOkClickListener(object : CustomDialog.OkClickListener {
@@ -330,7 +330,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 dialog.apply {
                     showDialog(
                         "",
-                        Utils.string(this@SignUpActivity, R.string.sign_up_name_error_format),
+                        Utils.string(this@SignUpActivity, R.string.name_error_format),
                         true
                     )
                     setOkClickListener(object : CustomDialog.OkClickListener {
