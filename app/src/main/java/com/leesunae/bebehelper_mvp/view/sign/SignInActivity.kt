@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.google.android.material.textfield.TextInputEditText
@@ -29,19 +30,9 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        println("signIn_save_user_data_ ${Session.getUser()}")
-
         dialog = CustomDialog(this)
 
-        Session.checkLogin(listener = { isLogin ->
-            println("isLogin__ $isLogin")
-            if (isLogin) {
-                println("isLogin_true_ ")
-                goToMain()
-            } else {
-                println("isLogin_false_ ")
-            }
-        })
+        checkLogin()
 
         presenter = SignInPresenter(Injection.userRepository(), this)
         setUpView()
@@ -58,6 +49,17 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
                 showDialog(R.string.sign_in_fail, binding.inputEmail, true)
             }
         }
+    }
+
+    /** 유저 로그인 체크 */
+    private fun checkLogin() {
+        Session.checkLogin(listener = { isLogin ->
+            if (isLogin) {
+                goToMain()
+            } else {
+                Log.i("", "not login user")
+            }
+        })
     }
 
     /** 메인 화면 이동(로그인) */

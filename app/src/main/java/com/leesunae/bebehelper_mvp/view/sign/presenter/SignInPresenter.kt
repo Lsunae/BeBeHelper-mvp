@@ -19,6 +19,7 @@ class SignInPresenter(
                 println("presenter_sign_in_success_response_isLogin_ $isLogin")
                 if (isLogin) {
                     response?.let { Session.setLoginId(it.id) }
+                    response?.let { Session.setLogin(it.email, it.password) }
                     Session.setUser(response)
                 }   // 유저 정보 저장
                 view.loginSuccess(isLogin, response)

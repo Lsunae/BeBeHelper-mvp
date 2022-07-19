@@ -7,13 +7,25 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tv_my_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="마이페이지" />
+            android:text="@string/my_page" />
+
+        <TextView
+            android:id="@+id/tv_sign_out"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/tv_my_page"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/sign_out" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
