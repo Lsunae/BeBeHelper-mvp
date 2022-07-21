@@ -58,4 +58,17 @@
     <string name="gender_male">남자</string>
     <string name="gender_female">여자</string>
 
+    <!-- Grouping -->
+    <string name="group_title">방 제목</string>
+    <string name="group_title_hint">방 제목을 입력해주세요</string>
+    <string name="group_area">지역</string>
+    <string name="group_area_hint">지역을 선택해주세요</string>
+    <string name="group_child_age">아이 나이</string>
+    <string name="group_child_age_hint">아이 나이를 선택해주세요</string>
+    <string name="group_child_count">아이 인원</string>
+    <string name="group_child_count_hint">아이 인원을 선택해주세요</string>
+    <string name="group_content">내용</string>
+    <string name="group_content_hint">내용을 입력해주세요</string>
+    <string name="group_create">등록하기</string>
+
 </resources>
