@@ -59,6 +59,7 @@
     <string name="gender_female">여자</string>
 
     <!-- Grouping -->
+    <string name="group_write_title">그룹핑 글 작성</string>
     <string name="group_title">방 제목</string>
     <string name="group_title_hint">방 제목을 입력해주세요</string>
     <string name="group_area">지역</string>
