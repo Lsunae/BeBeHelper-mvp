@@ -1,5 +1,6 @@
-package com.leesunae.bebehelper_mvp.data.repository
+package com.leesunae.bebehelper_mvp.data.repository.user
 
+import com.leesunae.bebehelper_mvp.data.repository.Callback
 import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 interface UserRepository {

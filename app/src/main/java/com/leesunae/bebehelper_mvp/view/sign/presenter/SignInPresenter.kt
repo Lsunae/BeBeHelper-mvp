@@ -3,7 +3,7 @@ package com.leesunae.bebehelper_mvp.view.sign.presenter
 import android.util.Log
 import com.leesunae.bebehelper_mvp.Session
 import com.leesunae.bebehelper_mvp.data.repository.Callback
-import com.leesunae.bebehelper_mvp.data.repository.UserRepository
+import com.leesunae.bebehelper_mvp.data.repository.user.UserRepository
 import com.leesunae.bebehelper_mvp.data.room.entity.User
 
 class SignInPresenter(

@@ -1,7 +1,8 @@
-package com.leesunae.bebehelper_mvp.data.repository
+package com.leesunae.bebehelper_mvp.data.repository.user
 
+import com.leesunae.bebehelper_mvp.data.repository.Callback
 import com.leesunae.bebehelper_mvp.data.room.entity.User
-import com.leesunae.bebehelper_mvp.data.source.local.UserLocalDataSource
+import com.leesunae.bebehelper_mvp.data.source.local.user.UserLocalDataSource
 
 class UserRepositoryImpl private constructor(
     private val localDataSource: UserLocalDataSource
@@ -62,7 +63,6 @@ class UserRepositoryImpl private constructor(
     override fun checkNickname(nickname: String, callback: Callback<Boolean>) {
         localDataSource.checkNickname(nickname, callback)
     }
-
 
     companion object {
         fun getInstance(localDataSource: UserLocalDataSource): UserRepository =

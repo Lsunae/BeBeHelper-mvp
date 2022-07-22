@@ -1,4 +1,4 @@
-package com.leesunae.bebehelper_mvp.data.source.local
+package com.leesunae.bebehelper_mvp.data.source.local.user
 
 import com.leesunae.bebehelper_mvp.data.repository.Callback
 import com.leesunae.bebehelper_mvp.data.room.entity.User
