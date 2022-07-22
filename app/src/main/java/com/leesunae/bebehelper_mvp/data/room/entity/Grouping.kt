@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity
-data class Group(
+data class Grouping(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
 

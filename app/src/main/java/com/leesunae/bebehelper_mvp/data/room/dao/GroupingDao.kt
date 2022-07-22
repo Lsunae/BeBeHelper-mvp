@@ -1,32 +1,32 @@
 package com.leesunae.bebehelper_mvp.data.room.dao
 
 import androidx.room.*
-import com.leesunae.bebehelper_mvp.data.room.entity.Group
+import com.leesunae.bebehelper_mvp.data.room.entity.Grouping
 
 
 @Dao
-interface GroupDao {
+interface GroupingDao {
 
     @Insert
-    fun insertAll(vararg group: Group?)
+    fun insertAll(vararg group: Grouping?)
 
     /** 그룹 추가 */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(group: Group): Long
+    fun insertGrouping(group: Grouping): Long
 
     /** 그룹 정보 업데이트 */
     @Update
-    fun updateGroup(group: Group)
+    fun updateGrouping(group: Grouping)
 
     /** 그룹 삭제 */
-    @Query("DELETE FROM `Group` WHERE id = :id")
-    fun deleteGroup(id: Int)
+    @Query("DELETE FROM Grouping WHERE id = :id")
+    fun deleteGrouping(id: Int)
 
     /** 그룹 조회 */
-    @Query("SELECT * FROM `Group` WHERE id = :id")
-    fun getUser(id: Int): Group
+    @Query("SELECT * FROM Grouping WHERE id = :id")
+    fun getGrouping(id: Int): Grouping
 
     /** 그룹 목록 조회 */
-    @Query("SELECT * FROM `Group`")
-    fun getAll(): List<Group>
+    @Query("SELECT * FROM Grouping")
+    fun getAll(): List<Grouping>
 }
