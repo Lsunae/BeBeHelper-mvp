@@ -14,14 +14,14 @@ class GroupingRepositoryImpl private constructor(
         title: String,
         area: String,
         ageLimit: String,
-        childCount: String,
+        childCount: Int,
         ageOfChildren: String,
         content: String,
         writerId: Int,
         writerNickname: String,
         callback: Callback<Boolean>
     ) {
-
+        localDataSource.createGrouping(title, area, ageLimit, childCount, ageOfChildren, content, writerId, writerNickname, callback)
     }
 
     override fun updateGrouping(
@@ -38,15 +38,15 @@ class GroupingRepositoryImpl private constructor(
     }
 
     override fun getGrouping(email: String, callback: Callback<Grouping>) {
-
+        localDataSource.getGrouping(email, callback)
     }
 
     override fun getGroupingList(callback: Callback<List<Grouping>>) {
-
+        localDataSource.getGroupingList(callback)
     }
 
     override fun deleteGrouping(id: Int, callback: Callback<String>) {
-
+        localDataSource.deleteGrouping(id, callback)
     }
 
     companion object {

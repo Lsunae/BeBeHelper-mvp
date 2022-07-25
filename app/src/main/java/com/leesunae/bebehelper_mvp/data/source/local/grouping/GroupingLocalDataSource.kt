@@ -8,7 +8,7 @@ interface GroupingLocalDataSource {
         title: String,
         area: String,
         ageLimit: String,
-        childCount: String,
+        childCount: Int,
         ageOfChildren: String,
         content: String,
         writerId: Int,
