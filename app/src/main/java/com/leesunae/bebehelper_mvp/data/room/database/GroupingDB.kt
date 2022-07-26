@@ -17,7 +17,7 @@ abstract class GroupingDB : RoomDatabase() {
         fun getInstance(context: Context): GroupingDB {
             return INSTANCE ?: Room.databaseBuilder(
                 context.applicationContext,
-                GroupingDB::class.java, "user.db"
+                GroupingDB::class.java, "grouping.db"
             )
                 .fallbackToDestructiveMigration()
                 .build()

@@ -15,13 +15,12 @@ class GroupingRepositoryImpl private constructor(
         area: String,
         ageLimit: String,
         childCount: Int,
-        ageOfChildren: String,
         content: String,
         writerId: Int,
         writerNickname: String,
         callback: Callback<Boolean>
     ) {
-        localDataSource.createGrouping(title, area, ageLimit, childCount, ageOfChildren, content, writerId, writerNickname, callback)
+        localDataSource.createGrouping(title, area, ageLimit, childCount, content, writerId, writerNickname, callback)
     }
 
     override fun updateGrouping(
@@ -30,7 +29,6 @@ class GroupingRepositoryImpl private constructor(
         area: String,
         ageLimit: String,
         childCount: String,
-        ageOfChildren: String,
         content: String,
         callback: Callback<Boolean>
     ) {

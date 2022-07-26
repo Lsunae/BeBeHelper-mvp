@@ -17,6 +17,7 @@
     <string name="sign_in">로그인</string>
     <string name="sign_in_need_sign_up">아직 회원이 아니신가요? 회원가입</string>
     <string name="sign_in_fail">이메일 또는 비밀번호를 다시 확인해주세요.</string>
+    <string name="need_to_login">로그인을 해주세요.</string>
 
     <!-- 로그아웃 -->
     <string name="sign_out">로그아웃</string>
@@ -71,5 +72,6 @@
     <string name="group_content">내용</string>
     <string name="group_content_hint">내용을 입력해주세요</string>
     <string name="group_create">등록하기</string>
+    <string name="group_create_success">그룹핑 글이 등록되었습니다.</string>
 
 </resources>

@@ -8,6 +8,6 @@ interface GroupingCreateContract {
     }
 
     interface Presenter {
-        fun createUser(grouping: GroupingItem)
+        fun createGrouping(grouping: GroupingItem)
     }
 }

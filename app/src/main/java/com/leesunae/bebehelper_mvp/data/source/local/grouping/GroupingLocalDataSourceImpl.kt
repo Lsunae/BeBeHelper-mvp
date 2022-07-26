@@ -16,7 +16,6 @@ class GroupingLocalDataSourceImpl(
         area: String,
         ageLimit: String,
         childCount: Int,
-        ageOfChildren: String,
         content: String,
         writerId: Int,
         writerNickname: String,
@@ -47,7 +46,6 @@ class GroupingLocalDataSourceImpl(
         area: String,
         ageLimit: String,
         childCount: String,
-        ageOfChildren: String,
         content: String,
         callback: Callback<Boolean>
     ) {
