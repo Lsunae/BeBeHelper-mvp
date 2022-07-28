@@ -15,5 +15,5 @@
     <item
         android:id="@+id/action_my_page"
         android:enabled="true"
-        android:title="@string/grouping" />
+        android:title="@string/my_page" />
 </menu>
