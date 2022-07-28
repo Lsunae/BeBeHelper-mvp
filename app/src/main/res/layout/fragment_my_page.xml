@@ -4,17 +4,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/tv_my_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/my_page"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/my_page" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_sign_out"
@@ -22,10 +23,10 @@
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/tv_my_page"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/sign_out"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/sign_out" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_my_page" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
