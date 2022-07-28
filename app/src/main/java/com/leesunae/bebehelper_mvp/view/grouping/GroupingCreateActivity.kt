@@ -99,8 +99,8 @@ class GroupingCreateActivity :
 
     private fun checkValid() {
         binding.apply {
-            val title = tvTitle.text.toString()
-            val content = tvContent.text.toString()
+            val title = inputTitle.text.toString()
+            val content = inputContent.text.toString()
             groupingItem.title = title
             groupingItem.content = content
             groupingItem.writerId = Session.getUser()?.id ?: 0
