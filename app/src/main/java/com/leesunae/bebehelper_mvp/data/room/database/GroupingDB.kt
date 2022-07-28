@@ -10,7 +10,7 @@ import com.leesunae.bebehelper_mvp.data.room.entity.Grouping
 
 @Database(entities = [Grouping::class], version = 1)
 abstract class GroupingDB : RoomDatabase() {
-    abstract fun groupDao(): GroupingDao
+    abstract fun groupingDao(): GroupingDao
 
     companion object {
         private var INSTANCE: GroupingDB? = null

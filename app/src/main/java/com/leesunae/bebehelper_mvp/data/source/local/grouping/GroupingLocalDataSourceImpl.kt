@@ -31,7 +31,7 @@ class GroupingLocalDataSourceImpl(
                 writerId = writerId,
                 writerNickname = writerNickname
             )
-            val insertedPk = groupingDB.groupDao().insertGrouping(newGrouping)
+            val insertedPk = groupingDB.groupingDao().insertGrouping(newGrouping)
             println("insertedPk_grouping_ $insertedPk")
             appExecutors.mainThread.execute {
                 println("grouping_local_insertedSuccess_ $insertedPk")
@@ -57,7 +57,13 @@ class GroupingLocalDataSourceImpl(
     }
 
     override fun getGroupingList(callback: Callback<List<Grouping>>) {
-
+        appExecutors.diskIO.execute {
+            val groupings = groupingDB.groupingDao().getAll()
+            println("local_grouping_all_ $groupings")
+            appExecutors.mainThread.execute {
+                callback.onSuccess(groupings)
+            }
+        }
     }
 
     override fun deleteGrouping(id: Int, callback: Callback<String>) {
