@@ -1,5 +1,5 @@
 package com.leesunae.bebehelper_mvp.constant
 
 enum class MenuType(i: Int) {
-    GROUPING(0), INFO_SHARING(1), RECOMMENDED_ACTIVITY(2), MY_PAGE(3)
+    GROUPING(0), RECOMMENDED_ACTIVITY(1), MY_PAGE(2)
 }
