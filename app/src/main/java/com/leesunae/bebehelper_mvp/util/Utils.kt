@@ -3,8 +3,10 @@ package com.leesunae.bebehelper_mvp.util
 import android.content.Context
 import android.content.res.Resources.NotFoundException
 import android.graphics.drawable.Drawable
+import android.util.DisplayMetrics
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.leesunae.bebehelper_mvp.App
 
 interface Utils {
     companion object {
@@ -45,6 +47,15 @@ interface Utils {
                 Log.e("ERROR", "[" + c.javaClass.name + "] getResources string NotFound : " + e)
                 ""
             }
+        }
+        fun getDeviceWidth(): Int {
+            val dm: DisplayMetrics = App.instance.context().resources.displayMetrics
+            return dm.widthPixels
+        }
+
+        fun getDeviceHeight(): Int {
+            val dm: DisplayMetrics = App.instance.context().resources.displayMetrics
+            return dm.heightPixels
         }
     }
 }
