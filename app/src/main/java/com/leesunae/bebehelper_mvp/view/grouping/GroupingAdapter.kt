@@ -11,14 +11,21 @@ import com.leesunae.bebehelper_mvp.util.Utils
 import com.leesunae.bebehelper_mvp.view.grouping.presenter.adapter.GroupingAdapterContract
 import java.lang.ref.WeakReference
 
-class GroupingAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>(), GroupingAdapterContract.View, GroupingAdapterContract.Model {
+class GroupingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+    GroupingAdapterContract.View, GroupingAdapterContract.Model {
     private lateinit var context: Context
     private var items = mutableListOf<Grouping>()
     lateinit var groupingFragment: WeakReference<GroupingFragment>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         this.context = parent.context
-        return GroupingHolder(ItemGroupingBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return GroupingHolder(
+            ItemGroupingBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -49,22 +56,23 @@ class GroupingAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>(), Grouping
     override fun addData(addDataList: MutableList<Grouping>) {
         this.items.clear()
         items.addAll(addDataList)
-        println("addDataList_ $addDataList")
     }
 
-    inner class GroupingHolder(private val binding: ItemGroupingBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class GroupingHolder(private val binding: ItemGroupingBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         private lateinit var item: Grouping
 
         fun bind(item: Grouping, position: Int) {
             this.item = item
 
-            println("grouping_item_ $item")
             binding.apply {
                 title = item.title
                 content = item.content
                 area = item.area
-                childLimitAge = String.format(Utils.string(context, R.string.age), item.ageLimit)
-                childLimitCount = String.format(Utils.string(context, R.string.user_count), item.childCount)
+                childLimitAge =
+                    String.format(Utils.string(context, R.string.age_count), item.ageLimit)
+                childLimitCount =
+                    String.format(Utils.string(context, R.string.user_count), item.childCount)
             }
         }
     }
