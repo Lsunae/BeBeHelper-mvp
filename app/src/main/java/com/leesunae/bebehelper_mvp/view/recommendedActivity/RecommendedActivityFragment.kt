@@ -34,11 +34,11 @@ class RecommendedActivityFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setPlayImageList()
+        setPlayItemList()
         setAdapter()
         presenter = RecommendedActivityPresenter(this, playImgAdapter, playImgAdapter)
         presenter.addData(playList)
-        setClickListener()
+        setUpView()
     }
 
     override fun onDestroyView() {
@@ -53,6 +53,12 @@ class RecommendedActivityFragment :
                     Utils.string(requireContext(), R.string.play_block_explanation)
             }
         }
+    }
+
+    private fun setUpView() {
+        binding.incActionbar.tvTitle.text =
+            Utils.string(requireContext(), R.string.recommended_activity)
+        setClickListener()
     }
 
     /** 리사이클러뷰 어댑터 셋팅 */
@@ -87,7 +93,7 @@ class RecommendedActivityFragment :
         })
     }
 
-    private fun setPlayImageList() {
+    private fun setPlayItemList() {
         playList.add(
             PlayItem(
                 ContextCompat.getDrawable(requireContext(), R.drawable.play_block),

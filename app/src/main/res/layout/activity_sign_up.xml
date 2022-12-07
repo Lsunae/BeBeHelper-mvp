@@ -18,7 +18,7 @@
 
         <include
             android:id="@+id/inc_actionbar"
-            layout="@layout/layout_actionbar"
+            layout="@layout/layout_actionbar_detail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/actionbar_height" />
 

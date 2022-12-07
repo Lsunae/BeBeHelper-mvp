@@ -7,24 +7,9 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/actionbar_height"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:text="@string/recommended_activity"
-            android:textColor="@color/gray_900"
-            android:textSize="18dp"
-            android:textStyle="normal"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/view_line_1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_300"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        <include
+            android:id="@+id/inc_actionbar"
+            layout="@layout/layout_actionbar"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_play_img"
@@ -35,10 +20,10 @@
             app:layout_constraintDimensionRatio="w,3:5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_line_1" />
+            app:layout_constraintTop_toBottomOf="@+id/inc_actionbar" />
 
         <View
-            android:id="@+id/view_line_2"
+            android:id="@+id/view_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="30dp"
@@ -54,7 +39,7 @@
             android:layout_marginTop="30dp"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/view_line_2" />
+            app:layout_constraintTop_toBottomOf="@+id/view_line" />
 
         <TextView
             android:id="@+id/tv_play_explanation"
