@@ -29,37 +29,70 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         super.onViewCreated(view, savedInstanceState)
 
         dialog = CustomDialog(requireContext())
-
-        binding.tvSignOut.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                Session.logout {
-                    if (it) {
-                        dialog.apply {
-                            showDialog(
-                                "",
-                                Utils.string(requireContext(), R.string.sign_out_success),
-                                true
-                            )
-                            setOkClickListener(object : CustomDialog.OkClickListener {
-                                override fun okClick() {
-                                    goToSignIn()
-                                }
-                            })
-                        }
-                    } else {
-                        dialog.showDialog(
-                            "",
-                            Utils.string(requireContext(), R.string.sign_out_fail),
-                            false
-                        )
-                    }
-                }
-            }
-        })
+        setUpView()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+    }
+
+    private fun setUpView() {
+        val user = Session.getUser()
+        binding.apply {
+            incActionbar.tvTitle.text = Utils.string(requireContext(), R.string.my_page)
+
+            tvUserName.text = String.format(
+                Utils.string(requireContext(), R.string.nickname_text),
+                user?.nickname
+            )
+            tvChildAge.text = String.format(
+                Utils.string(requireContext(), R.string.child_age_text),
+                user?.ageOfChildren
+            )
+            tvChildGender.text = String.format(
+                Utils.string(requireContext(), R.string.child_gender_text),
+                user?.childGender
+            )
+            tvUserArea.text =
+                String.format(Utils.string(requireContext(), R.string.area_text), user?.area)
+        }
+        setSignOut()
+    }
+
+    private fun setSignOut() {
+        binding.tvSignOut.setOnClickListener(object : OnSingleClickListener() {
+            override fun onSingleClick(v: View) {
+
+                // 로그아웃 다시 한 번 체크하는 다이얼로그
+                dialog.apply {
+                    showProposalDialog(
+                        "",
+                        Utils.string(requireContext(), R.string.sign_out_check),
+                        Utils.string(requireContext(), R.string.sign_out),
+                        Utils.string(requireContext(), R.string.cancel),
+                        true
+                    )
+                    // 로그아웃 클릭 시
+                    setOkClickListener(object : CustomDialog.OkClickListener {
+                        override fun okClick() {
+                            Session.logout {
+                                if (it) {
+                                    // 로그아웃 성공 다이얼로그
+                                    goToSignIn()
+                                } else {
+                                    // 로그아웃 실패 다이얼로그
+                                    dialog.showDialog(
+                                        "",
+                                        Utils.string(requireContext(), R.string.sign_out_fail),
+                                        false
+                                    )
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        })
     }
 
     /** 로그인 화면 이동 */

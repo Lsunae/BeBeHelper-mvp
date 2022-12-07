@@ -1,32 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <TextView
-            android:id="@+id/tv_my_page"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/inc_actionbar"
+            layout="@layout/layout_actionbar" />
+
+        <LinearLayout
+            android:id="@+id/ll_parent_info"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/my_page"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/inc_actionbar">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/my_info"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                tools:text="@string/nickname_text" />
+
+            <TextView
+                android:id="@+id/tv_child_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                tools:text="@string/child_age_text" />
+
+
+            <TextView
+                android:id="@+id/tv_child_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                tools:text="@string/child_gender_text" />
+
+            <TextView
+                android:id="@+id/tv_user_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                tools:text="@string/area_text" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray_300"
+            app:layout_constraintTop_toBottomOf="@+id/ll_parent_info" />
+
+        <TextView
+            android:id="@+id/tv_my_wrote_grouping"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_height"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_line_bottom_gray_300"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="5dp"
+            android:text="@string/my_wrote_grouping"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view_line_1"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/tv_sign_out"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_height"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="5dp"
             android:text="@string/sign_out"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_my_page" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_my_wrote_grouping"
+            tools:ignore="RtlSymmetry" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
