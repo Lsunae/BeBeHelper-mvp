@@ -26,6 +26,7 @@
         <activity android:name=".view.MainActivity"/>
         <activity android:name=".view.sign.SignUpActivity"/>
         <activity android:name=".view.grouping.GroupingCreateActivity"/>
+        <activity android:name=".view.myPage.MyWroteGroupingActivity"/>
     </application>
 
 </manifest>

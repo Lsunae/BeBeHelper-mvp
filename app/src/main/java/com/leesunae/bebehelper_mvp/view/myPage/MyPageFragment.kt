@@ -56,9 +56,19 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             tvUserArea.text =
                 String.format(Utils.string(requireContext(), R.string.area_text), user?.area)
         }
+
+        // 내가 작성한 그룹핑 글 목록 이동
+        binding.tvMyWroteGrouping.setOnClickListener(object : OnSingleClickListener() {
+            override fun onSingleClick(v: View) {
+                val intent = Intent(requireContext(), MyWroteGroupingActivity::class.java)
+                startActivity(intent)
+            }
+        })
+
         setSignOut()
     }
 
+    // 로그아웃
     private fun setSignOut() {
         binding.tvSignOut.setOnClickListener(object : OnSingleClickListener() {
             override fun onSingleClick(v: View) {
