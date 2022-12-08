@@ -16,18 +16,15 @@ class GroupingPresenter(
     override fun getGroupingList(context: Context) {
         groupingRepository.getGroupingList(object : Callback<List<Grouping>> {
             override fun onSuccess(response: List<Grouping>) {
-                println("grouping_success_response $response")
                 Log.i("[${javaClass.name}]", "$response")
 
                 val groupings = mutableListOf<Grouping>()
                 groupings.addAll(response)
-                view.getGroupingListData(groupings)
                 adapterModel.addData(groupings)
                 adapterView.notifyAdapter()
             }
 
             override fun onFailure(message: String) {
-                println("create_grouping_failure_response $message")
                 Log.e("[${javaClass.name}]", message)
             }
         })

@@ -82,17 +82,23 @@ class GroupingCreateActivity :
             tvSelectChildAge.setAdapter(ageAdapter)
             tvSelectChildAge.onItemClickListener =
                 AdapterView.OnItemClickListener { adapterView, view, position, id ->
-                    groupingItem.ageLimit = adapterView.getItemAtPosition(position).toString().replace("세", "")
+                    groupingItem.ageLimit =
+                        adapterView.getItemAtPosition(position).toString().replace("세", "")
                 }
 
             //note 아이 인원 선택
             val childCountArray = resources.getStringArray(R.array.child_count_array)
             val childCountAdapter: ArrayAdapter<String> =
-                ArrayAdapter(this@GroupingCreateActivity, R.layout.item_select_text, childCountArray)
+                ArrayAdapter(
+                    this@GroupingCreateActivity,
+                    R.layout.item_select_text,
+                    childCountArray
+                )
             tvSelectChildCount.setAdapter(childCountAdapter)
             tvSelectChildCount.onItemClickListener =
                 AdapterView.OnItemClickListener { adapterView, view, position, id ->
-                    groupingItem.childCount = adapterView.getItemAtPosition(position).toString().replace("명", "").toInt()
+                    groupingItem.childCount =
+                        adapterView.getItemAtPosition(position).toString().replace("명", "").toInt()
                 }
         }
     }

@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leesunae.bebehelper_mvp.Injection
 import com.leesunae.bebehelper_mvp.R
-import com.leesunae.bebehelper_mvp.data.room.entity.Grouping
 import com.leesunae.bebehelper_mvp.databinding.FragmentGroupingBinding
-import com.leesunae.bebehelper_mvp.databinding.ItemGroupingBinding
 import com.leesunae.bebehelper_mvp.util.OnSingleClickListener
 import com.leesunae.bebehelper_mvp.util.Utils
 import com.leesunae.bebehelper_mvp.view.base.BaseFragment
@@ -20,7 +18,9 @@ import kotlinx.android.synthetic.main.fragment_my_page.*
 import kotlinx.android.synthetic.main.layout_actionbar.view.*
 import java.lang.ref.WeakReference
 
-class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment_grouping), GroupingContract.View {
+class GroupingFragment :
+    BaseFragment<FragmentGroupingBinding>(R.layout.fragment_grouping),
+    GroupingContract.View {
     private lateinit var presenter: GroupingContract.Presenter
     private lateinit var groupingAdapter: GroupingAdapter
 
@@ -38,17 +38,14 @@ class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment
         setAdapter()
         groupingAdapter.groupingFragment = WeakReference(this)
 
-        presenter = GroupingPresenter(Injection.groupingRepository(), this, groupingAdapter, groupingAdapter)
+        presenter = GroupingPresenter(
+            Injection.groupingRepository(),
+            this,
+            groupingAdapter,
+            groupingAdapter
+        )
         presenter.getGroupingList(requireContext())
         setUpView()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
-    override fun getGroupingListData(groupings: MutableList<Grouping>) {
-        println("groupings_ $groupings")
     }
 
     /** 리사이클러뷰 어댑터 셋팅 */

@@ -12,7 +12,8 @@ import com.leesunae.bebehelper_mvp.view.grouping.presenter.adapter.GroupingAdapt
 import java.lang.ref.WeakReference
 
 class GroupingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
-    GroupingAdapterContract.View, GroupingAdapterContract.Model {
+    GroupingAdapterContract.View,
+    GroupingAdapterContract.Model {
     private lateinit var context: Context
     private var items = mutableListOf<Grouping>()
     lateinit var groupingFragment: WeakReference<GroupingFragment>
