@@ -8,9 +8,7 @@ import com.leesunae.bebehelper_mvp.R
 import com.leesunae.bebehelper_mvp.data.room.entity.Grouping
 import com.leesunae.bebehelper_mvp.databinding.ItemGroupingBinding
 import com.leesunae.bebehelper_mvp.util.Utils
-import com.leesunae.bebehelper_mvp.view.grouping.GroupingFragment
 import com.leesunae.bebehelper_mvp.view.myPage.presenter.adapter.MyWroteGroupingAdapterContract
-import java.lang.ref.WeakReference
 
 class MyWroteGroupingRvAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(),
@@ -18,7 +16,6 @@ class MyWroteGroupingRvAdapter :
     MyWroteGroupingAdapterContract.Model {
     private lateinit var context: Context
     private var items = mutableListOf<Grouping>()
-    lateinit var groupingFragment: WeakReference<GroupingFragment>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         this.context = parent.context
@@ -39,11 +36,6 @@ class MyWroteGroupingRvAdapter :
         when (holder) {
             is Holder -> {
                 holder.bind(items[position], position)
-
-                // 더보기
-                if (items.size - 10 == position && groupingFragment.get() != null) {
-                    groupingFragment.get()!!.apiListMore()
-                }
             }
         }
     }

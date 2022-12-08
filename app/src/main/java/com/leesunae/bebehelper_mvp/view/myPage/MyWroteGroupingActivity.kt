@@ -5,7 +5,6 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leesunae.bebehelper_mvp.Injection
 import com.leesunae.bebehelper_mvp.R
-import com.leesunae.bebehelper_mvp.data.room.entity.Grouping
 import com.leesunae.bebehelper_mvp.databinding.ActivityMyWroteGroupingBinding
 import com.leesunae.bebehelper_mvp.util.OnSingleClickListener
 import com.leesunae.bebehelper_mvp.util.Utils
@@ -16,7 +15,8 @@ import com.leesunae.bebehelper_mvp.view.myPage.presenter.MyWroteGroupingPresente
 import kotlinx.android.synthetic.main.layout_actionbar_detail.*
 
 class MyWroteGroupingActivity :
-    BaseActivity<ActivityMyWroteGroupingBinding>(R.layout.activity_my_wrote_grouping), MyWroteGroupingContract.View {
+    BaseActivity<ActivityMyWroteGroupingBinding>(R.layout.activity_my_wrote_grouping),
+    MyWroteGroupingContract.View {
     private lateinit var presenter: MyWroteGroupingContract.Presenter
     private lateinit var myGroupingAdapter: MyWroteGroupingRvAdapter
 
@@ -25,17 +25,19 @@ class MyWroteGroupingActivity :
 
         setUpView()
         setRvAdapter()
-        presenter = MyWroteGroupingPresenter(Injection.groupingRepository(),this, myGroupingAdapter, myGroupingAdapter)
+        presenter = MyWroteGroupingPresenter(
+            Injection.groupingRepository(),
+            this,
+            myGroupingAdapter,
+            myGroupingAdapter
+        )
         presenter.getGroupingList()
-    }
-
-    override fun getGroupingListData(groupingList: MutableList<Grouping>) {
-        println("my_grouping_groupingList_ $groupingList")
     }
 
     private fun setUpView() {
         binding.apply {
-            incActionbar.tvTitle.text = Utils.string(this@MyWroteGroupingActivity, R.string.my_wrote_grouping)
+            incActionbar.tvTitle.text =
+                Utils.string(this@MyWroteGroupingActivity, R.string.my_wrote_grouping)
             iv_back.setOnClickListener(object : OnSingleClickListener() {
                 override fun onSingleClick(v: View) {
                     finish()
@@ -53,4 +55,8 @@ class MyWroteGroupingActivity :
         }
     }
 
+    /** 리스트 더보기 */
+    fun apiListMore() {
+        presenter.getGroupingList()
+    }
 }
