@@ -45,7 +45,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     }
 
     override fun createUserSuccess(message: Boolean) {
-        println("signUp_show_message_ $message")
         if (message) {
             presenter.getUserAll()
             finish()
@@ -53,23 +52,17 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     }
 
     override fun checkedEmail(email: String, isChecked: Boolean) {
-        println("check_email_ $email")
-        println("check_email_isChecked_ $isChecked")
         if (isChecked) user.email = email
         user.isCheckedEmail = isChecked
         if (user.isCheckedEmail && user.isCheckedNickname) {
-            println("check_email_isChecked_11 $isChecked")
             checkValid()
         }
     }
 
     override fun checkedNickname(nickname: String, isChecked: Boolean) {
-        println("check_nickname_ $nickname")
-        println("check_nickname_isChecked_ $isChecked")
         if (isChecked) user.nickname = nickname
         user.isCheckedNickname = isChecked
         if (user.isCheckedEmail && user.isCheckedNickname) {
-            println("check_nickname_isChecked_11 $isChecked")
             checkValid()
         }
     }
@@ -99,7 +92,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
             tvAgeItem.setAdapter(ageAdapter)
             tvAgeItem.onItemClickListener =
                 AdapterView.OnItemClickListener { adapterView, view, position, id ->
-                    user.ageOfChildren = adapterView.getItemAtPosition(position).toString().replace("세", "")
+                    user.ageOfChildren =
+                        adapterView.getItemAtPosition(position).toString().replace("세", "")
                 }
 
             // 지역 선택
@@ -111,25 +105,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 AdapterView.OnItemClickListener { adapterView, view, position, id ->
                     user.area = adapterView.getItemAtPosition(position).toString()
                 }
-
-            /* note 현재 미사용
-            // 이메일 중복체크
-            tvEmailCheck.setOnClickListener(object : OnSingleClickListener() {
-                override fun onSingleClick(v: View) {
-                    val email = inputEmail.text.toString()
-                    presenter.checkEmail(email)
-                }
-            })
-
-            // 닉네임 중복체크
-            tvNickCheck.setOnClickListener(object : OnSingleClickListener() {
-                override fun onSingleClick(v: View) {
-                    val nickname = inputNickname.text.toString()
-                    presenter.checkNickname(nickname)
-                }
-            })
-
-             */
         }
     }
 
@@ -139,14 +114,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
             user.email = inputEmail.text.toString()
             user.password = inputPassword.text.toString()
             user.nickname = inputNickname.text.toString()
-            println("click_register_email_ ${user.email}")
-            println("click_register_password_ ${user.password}")
-            println("click_register_nickname_ ${user.nickname}")
-//            presenter.createUser(user)
-
-//            presenter.checkEmail(email)
-//            presenter.checkNickname(nickname)
-
             checkEmail()
             checkNickname()
         }
@@ -155,23 +122,20 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     /** 입력 정보 유효성 확인 */
     private fun checkValid() {
         binding.apply {
-            user.gender = findViewById<RadioButton>(rgParentGender.checkedRadioButtonId).text.toString()  // 부모(유저) 성별
-            user.childGender = findViewById<RadioButton>(rgChildGender.checkedRadioButtonId).text.toString()  // 아이 성별
+            user.gender =
+                findViewById<RadioButton>(rgParentGender.checkedRadioButtonId).text.toString()  // 부모(유저) 성별
+            user.childGender =
+                findViewById<RadioButton>(rgChildGender.checkedRadioButtonId).text.toString()  // 아이 성별
 
             rgParentGender.setOnCheckedChangeListener { group, i ->
                 val radioBtn = group.findViewById<RadioButton>(i)
                 user.gender = radioBtn.text.toString()
-                println("parent_selected_radioBtn_ ${radioBtn.text}")
             }
 
             rgChildGender.setOnCheckedChangeListener { group, i ->
                 val radioBtn = group.findViewById<RadioButton>(i)
                 user.childGender = radioBtn.text.toString()
-                println("child_selected_radioBtn_ ${radioBtn.text}")
             }
-
-//            val age = if (user.ageOfChildren.isNotEmpty()) user.ageOfChildren else ""
-//            user.ageOfChildren = age
             user.area = user.area
         }
         user.isCheckedPassword = checkPassword()
@@ -180,7 +144,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 showDialog("", Utils.string(this@SignUpActivity, R.string.success), true)
                 setOkClickListener(object : CustomDialog.OkClickListener {
                     override fun okClick() {
-                        //note 로그인 처리 필요
                         presenter.createUser(user)
                     }
                 })
@@ -311,9 +274,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     /** 닉네임 입력 데이터 및 형식 체크 */
     private fun checkNickname() {
         binding.apply {
-            println("checkNickname_ ${user.nickname}")
             if (user.nickname.isEmpty()) {   // 닉네임 입력하지 않은 경우
-                println("checkNickname_1 ${user.nickname}")
                 dialog.apply {
                     showDialog(
                         "",

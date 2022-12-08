@@ -104,8 +104,6 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
         binding.apply {
             val email = inputEmail.text.toString()
             val password = inputPassword.text.toString()
-            println("signIn_email_ $email")
-            println("signIn_password_ $password")
             if (email.isEmpty()) {
                 showDialog(R.string.email_error_empty, inputEmail, true)
             } else if (password.isEmpty()) {

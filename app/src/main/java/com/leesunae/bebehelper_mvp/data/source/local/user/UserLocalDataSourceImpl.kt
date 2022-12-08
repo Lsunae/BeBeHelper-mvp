@@ -32,9 +32,7 @@ class UserLocalDataSourceImpl(
                 image = null
             )
             val insertedPk = userDB.userDao().insertUser(newUser)
-            println("insertedPk_ $insertedPk")
             appExecutors.mainThread.execute {
-                println("local_insertedSuccess_ $insertedPk")
                 callback.onSuccess(true)
             }
         }
@@ -42,8 +40,6 @@ class UserLocalDataSourceImpl(
 
     override fun login(email: String, password: String, callback: Callback<User?>) {
         appExecutors.diskIO.execute {
-            println("local_email_ $email")
-            println("local_password_ $password")
             val loginUser = userDB.userDao().getLoginUser(email)
             appExecutors.mainThread.execute {
                 callback.onSuccess(loginUser)
@@ -76,7 +72,6 @@ class UserLocalDataSourceImpl(
     override fun getUser(email: String, callback: Callback<User>) {
         appExecutors.diskIO.execute {
             val user = userDB.userDao().getUser(email)
-            println("local_user_ $user")
             appExecutors.mainThread.execute {
                 callback.onSuccess(user)
             }
@@ -86,7 +81,6 @@ class UserLocalDataSourceImpl(
     override fun getUserAll(callback: Callback<List<User>>) {
         appExecutors.diskIO.execute {
             val user = userDB.userDao().getAll()
-            println("local_user_all_ $user")
             appExecutors.mainThread.execute {
                 callback.onSuccess(user)
             }
@@ -96,10 +90,7 @@ class UserLocalDataSourceImpl(
     override fun checkEmail(email: String, callback: Callback<Boolean>) {
         appExecutors.diskIO.execute {
             val userList = userDB.userDao().checkEmail(email)
-            println("local_check_email_ $userList")
-
             val isChecked = userList.isNullOrEmpty()
-
             appExecutors.mainThread.execute {
                 callback.onSuccess(isChecked)
             }
@@ -109,10 +100,7 @@ class UserLocalDataSourceImpl(
     override fun checkNickname(nickname: String, callback: Callback<Boolean>) {
         appExecutors.diskIO.execute {
             val userList = userDB.userDao().checkNickname(nickname)
-            println("local_check_nickname_ $userList")
-
             val isChecked = userList.isNullOrEmpty()
-
             appExecutors.mainThread.execute {
                 callback.onSuccess(isChecked)
             }

@@ -10,15 +10,12 @@ import com.leesunae.bebehelper_mvp.R
 import com.leesunae.bebehelper_mvp.data.model.PlayItem
 import com.leesunae.bebehelper_mvp.databinding.ItemPlayBinding
 import com.leesunae.bebehelper_mvp.util.Utils
-import com.leesunae.bebehelper_mvp.view.recommendedActivity.RecommendedActivityFragment
 import com.leesunae.bebehelper_mvp.view.recommendedActivity.presenter.adapter.PlayImgAdapterContract
-import java.lang.ref.WeakReference
 
 class PlayImgAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), PlayImgAdapterContract.View,
     PlayImgAdapterContract.Model {
     private lateinit var context: Context
     private var items = mutableListOf<PlayItem>()
-    lateinit var recommendedActivityFragment: WeakReference<RecommendedActivityFragment>
     private var onItemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
@@ -63,21 +60,17 @@ class PlayImgAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), PlayImgA
     override fun addData(addDataList: MutableList<PlayItem>) {
         this.items.clear()
         items.addAll(addDataList)
-        println("addDataList_images_ $addDataList")
     }
 
     inner class ImageHolder(private val binding: ItemPlayBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PlayItem, position: Int) {
-
-            println("play_item_ $item")
             binding.apply {
                 ivPlay.apply {
                     setImageDrawable(item.image)
                     setOnClickListener { onItemClickListener?.onItemClick(position, item) }
 
                     val width = (Utils.getDeviceWidth() / 15) * 8
-                    println("width__ $width ")
                     val params = ConstraintLayout.LayoutParams(
                         width,
                         width

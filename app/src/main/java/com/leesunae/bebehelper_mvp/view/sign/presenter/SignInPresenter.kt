@@ -13,10 +13,8 @@ class SignInPresenter(
     override fun login(email: String, password: String) {
         userRepository.login(email, password, object : Callback<User?> {
             override fun onSuccess(response: User?) {
-                println("presenter_sign_in_success_response_login_ $response")
                 Log.i("[${javaClass.name}]", "$response")
                 val isLogin: Boolean = response != null && response.id > 0 && email == response.email && password == response.password
-                println("presenter_sign_in_success_response_isLogin_ $isLogin")
                 if (isLogin) {
                     response?.let { Session.setLoginId(it.id) }
                     response?.let { Session.setLogin(it.email, it.password) }
@@ -26,7 +24,6 @@ class SignInPresenter(
             }
 
             override fun onFailure(message: String) {
-                println("presenter_sign_in_failure_response_login_ $message")
                 Log.e("[${javaClass.name}]", message)
             }
         })
