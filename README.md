@@ -17,4 +17,5 @@ Kotlin 기반의 MVP 구조로 Room Database를 사용하여 앱 구현하기
 - Kotlin
 - MVP
 - Room Database
+- DataBinding
 - Material Design
